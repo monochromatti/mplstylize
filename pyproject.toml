@@ -1,6 +1,6 @@
 [project]
 name = "mplstylize"
-version = "0.1.0"
+version = "0.1.1"
 description = "Style utilities for matplotlib"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -10,10 +10,9 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.setuptools]
-packages = ["mplstylize"]
-package-dir = { "" = "src" }
-include-package-data = true
+[tool.hatch.metadata]
+license = "MIT"
+

@@ -16,7 +16,6 @@ for fontpath in resource_path.iterdir():
 
 style.use(files("mplstylize").joinpath("stylesheet.mplstyle"))
 
-
 # Define classes
 class Color:
     def __init__(self, name, hex):
