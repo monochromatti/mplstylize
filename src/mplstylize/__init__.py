@@ -9,10 +9,12 @@ from matplotlib.colors import LinearSegmentedColormap as LSC
 from matplotlib.colors import to_rgb, to_rgba
 
 # Add fonts
-for fontpath in (Path(__file__).parent / "fonts").glob("*.ttf"):
-    font_manager.fontManager.addfont(fontpath)
+resource_path = files("mplstylize.fonts")
+for fontpath in resource_path.iterdir():
+    if fontpath.name.endswith(".ttf"):
+        font_manager.fontManager.addfont(str(fontpath))
 
-style.use(Path(__file__).parent / "stylesheet.mplstyle")
+style.use(files("mplstylize").joinpath("stylesheet.mplstyle"))
 
 
 # Define classes
@@ -114,7 +116,7 @@ class ColorMapCollection:
 
 # Load resources
 def load_resource(file_name):
-    resource_path = files("mplstyle").joinpath(file_name)
+    resource_path = files("mplstylize").joinpath(file_name)
     with resource_path.open("r", encoding="utf-8") as file:
         return json.load(file)
 
